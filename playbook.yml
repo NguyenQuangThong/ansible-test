@@ -49,7 +49,7 @@
             aliases:
               - test
         env:
-          POSTGRES_PASSWORD: password123_DONG
+          POSTGRES_PASSWORD: admin
           POSTGRES_DB: db_example
         detach: true
         state: started
@@ -59,6 +59,12 @@
         pull: true
         comparisons:
           image: strict
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: ./script
+        dest: /home/ubuntu/script
+        owner: ubuntu
+        group: ubuntu
     
 
     - name: Re-create a Spring container

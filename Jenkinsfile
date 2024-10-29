@@ -2,7 +2,7 @@ pipeline {
 
     agent{
         docker {
-            image 'ansible/ansible'
+            image 'custom-ansible-image:latest'
         }
     }
     environment {
